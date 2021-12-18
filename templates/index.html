@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Django Auth Login Template Base</h1>
+<!-- Se usuario não autentificado -->
+{% if user.is_anonymous %}
+<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+<!-- Se usuario já logado  -->
+{% else %}
+<div class="alert alert-success" role="alert">
+    Seja bem-vindo(a) {{ user.get_full_name }}!
+</div>
+<a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+{% endif %}
+{% endblock %}

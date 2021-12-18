@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load django_bootstrap5 %}
+{% block content %}
+    <form class="form" method="post" autocomplete="off">
+        {% csrf_token %}
+        <img class="mb-4" src="https://i.ibb.co/qkJSWXQ/photo.png" alt="" width="72" height="72">
+        {% bootstrap_form form %} 
+        {% bootstrap_button button_type="submit" content="Entrar" %} 
+        {% bootstrap_button button_type="reset" content="Reset" %}
+        <a class="btn btn-primary" href="{% url 'index' %}">Voltar</a>
+        <p class="mt-5 mb-3 text-muted">&copy; {% now 'Y'%}</p>
+    </form>
+{% endblock %}
+
